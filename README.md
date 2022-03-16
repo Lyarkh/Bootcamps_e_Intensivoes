@@ -18,7 +18,7 @@ Segue os links para direcionar diretamente para a pasta que deseja, contendo os 
 <details>
 <summary>Pasta Arquivos_TXT</summary>
 
-Essa pasta contém arquivos de texto que foram usados em algumas das aulas dos cursos.
+> Essa pasta contém arquivos de texto que foram usados em algumas das aulas do curso.
 </details>
 
 
