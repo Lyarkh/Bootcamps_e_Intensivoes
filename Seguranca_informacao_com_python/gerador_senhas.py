@@ -2,7 +2,8 @@
 import random
 import string
 
-tamanho_da_senha = 16
+tamanho_da_senha = int(input('Digite o tamanho da senha que você quer gerar: '))
+
 chars = string.ascii_letters + string.digits + 'ç!@#$%¨&*()_+=,.:;~?/'
 
 rnd = random.SystemRandom()
