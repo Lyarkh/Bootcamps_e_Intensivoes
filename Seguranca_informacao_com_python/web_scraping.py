@@ -1,6 +1,6 @@
 # código referente à aula 04 - Desenvolvendo Web scraping
-from bs4 import BeautifulSoup
-import requests
+from bs4 import BeautifulSoup # pip install bs4
+import requests # pip install requests
 
 site = requests.get('https://www.climatempo.com.br/').content
 
