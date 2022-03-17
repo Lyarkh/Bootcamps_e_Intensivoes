@@ -1,3 +1,5 @@
 src/__pycache__/
 __pycache__/
 venv/
+.ipynb_checkpoints/
+Fundamentos_ETL_com_python/.ipynb_checkpoints/
