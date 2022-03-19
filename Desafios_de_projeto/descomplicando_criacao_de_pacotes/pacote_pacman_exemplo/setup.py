@@ -8,7 +8,7 @@ with open("requirements.txt") as f:
 
 setup(
     name="pacman_jogo_teste",
-    version="0.0.3",
+    version="0.0.1",
     author="Lucas Emanuel",
     author_email="lcemanuel.emanuel@gmail.com",
     description="Recriando o jogo do pacman utilizando pygame",
