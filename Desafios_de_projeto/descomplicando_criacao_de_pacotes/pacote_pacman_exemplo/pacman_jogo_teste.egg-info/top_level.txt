@@ -1,1 +1,1 @@
-pacman-teste
+pacman_teste

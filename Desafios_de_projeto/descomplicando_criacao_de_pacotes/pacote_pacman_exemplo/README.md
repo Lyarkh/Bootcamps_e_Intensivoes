@@ -18,7 +18,7 @@ pip install pacman-jogo-teste
 Para rodar o pacote e jogar o jogo, faça a seguinte importação.
 
 ```python
-from pacman-teste.jogo import game
+from pacman_teste.jogo import game
 game.jogar()
 ```
 

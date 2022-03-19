@@ -7,8 +7,8 @@ with open("requirements.txt") as f:
     requirements = f.read().splitlines()
 
 setup(
-    name="pacman-jogo-teste",
-    version="0.0.1",
+    name="pacman_jogo_teste",
+    version="0.0.3",
     author="Lucas Emanuel",
     author_email="lcemanuel.emanuel@gmail.com",
     description="Recriando o jogo do pacman utilizando pygame",
