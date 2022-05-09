@@ -1,14 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    color: rgb(189, 250, 232);
+    color: rgb(138, 251, 255);
+    font-family: 'Anton', sans-serif;
     
+}
+
+ul {
+    font-style: italic;
+    font-weight: 300;
 }
 
 body {
     background: url('./images/background.jpg') no-repeat center center fixed;
     background-size: cover;
+}
+
+header {
+    display: flex;
+}
+
+.container {
+    text-align: center;
+}
+
+.container .name h1 {
+    font-size: 70px;
+}
+
+.container .name h5 {
+    font-size: 35px;
+}
+
+#about p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form {
+    width: 40%;
+    margin: 0 auto;
+
+}
+
+.form input {
+    width: 50%;
+}
+
+.form button {
+    width: 15%;
 }
