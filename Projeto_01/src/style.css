@@ -6,7 +6,7 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    color: rgb(216, 251, 252);
+    color: rgb(34, 213, 219);
     font-family: 'Anton', sans-serif;
     
 }
@@ -26,7 +26,6 @@ header {
     justify-content: space-around;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #fff;
 }
 
 #logo {
@@ -37,10 +36,20 @@ header {
 
 header ul {
     display: flex;
+    border-bottom: 1px solid #fff;
+    box-shadow: 2px 8px 10px -10px #fff;
 }
 
 header ul li {
     padding: 5px;
+}
+
+header ul li a {
+    transition: 400ms;
+}
+
+header ul li a:hover {
+    color: rgb(238, 151, 255);
 }
 
 .container {
@@ -68,8 +77,28 @@ header ul li {
 
 .form input {
     width: 50%;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
 }
 
 .form button {
     width: 15%;
+    padding: 5px 10px;
+    font-weight: 800;
+    background: linear-gradient(to right,rgb(238, 151, 255)  50%, rgb(34, 213, 219) 50%);
+    color:rgb(219, 221, 221);
+    background-size: 200% 100% ;
+    background-position: right bottom;
+    border: none;
+    cursor: pointer;
+    transition: all 400ms ease-out;
+    border-radius: 0px 5px 5px 0;
+    margin-top: 20px;
+    margin-left: -5px;
+}
+
+.form button:hover {
+    color: rgb(219, 221, 221);
+    background-position: left bottom;
 }
