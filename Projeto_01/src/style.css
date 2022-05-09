@@ -64,6 +64,31 @@ header ul li a:hover {
     font-size: 35px;
 }
 
+.arrow {
+    font-size: 35px;
+    cursor: pointer;
+    animation: blink 1s steps(5, start) infinite;
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+#animation {
+    transition: 400ms;
+}
+
+.active {
+    display: block !important;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: 400ms;
+}
+
 #about p {
     max-width: 600px;
     margin: 0 auto;
@@ -102,3 +127,4 @@ header ul li a:hover {
     color: rgb(219, 221, 221);
     background-position: left bottom;
 }
+

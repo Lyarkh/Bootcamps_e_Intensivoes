@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/58bbacb271.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/icon.jpg">
     <title> .: Lucas Emanuel :. </title>
 </head>
 <body>
@@ -32,11 +33,11 @@
                 <h5>Back-end Developer</h5>
             </div>
 
-            <div class="arrow">
-                <i class="fa-solid fa-circle-down"></i>
+            <div onclick="displayAbout()" class="arrow">
+                <i id="animation" class="fa-solid fa-circle-down"></i>
             </div>
 
-            <div id="about">
+            <div style="display: none;" id="about">
                 <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
                     Quidem beatae sapiente at aliquid exercitationem non in, dolore architecto facilis eos laudantium corporis saepe velit.
@@ -50,12 +51,21 @@
                     <p>Deixe seu contato!</p>
                 </div>
                 <form action="">
-                    <input type="text" placeholder="Seu e-mail">
+                    <input type="text" placeholder="Seu e-mail :)">
                     <button>Enviar!</button>
                 </form>
             </div>
         </section>
     </main>
     
+    <script>
+        function displayAbout(){
+            var arrow = document.getElementById('animation')
+            arrow.classList.toggle('rotate');
+
+            var display = document.getElementById('about')
+            display.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
