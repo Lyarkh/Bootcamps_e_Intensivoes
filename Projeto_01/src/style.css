@@ -6,7 +6,7 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    color: rgb(138, 251, 255);
+    color: rgb(216, 251, 252);
     font-family: 'Anton', sans-serif;
     
 }
@@ -17,12 +17,30 @@ ul {
 }
 
 body {
-    background: url('./images/background.jpg') no-repeat center center fixed;
+    background: url('./images/background.jpg') no-repeat center center fixed ;
     background-size: cover;
 }
 
 header {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+}
+
+#logo {
+    width: 25%;
+    border-radius: 50%;
+    
+}
+
+header ul {
+    display: flex;
+}
+
+header ul li {
+    padding: 5px;
 }
 
 .container {
