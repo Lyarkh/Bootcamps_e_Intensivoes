@@ -26,6 +26,7 @@ header {
     justify-content: space-around;
     align-items: center;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 #logo {
@@ -97,6 +98,7 @@ header ul li a:hover {
 .form {
     width: 40%;
     margin: 0 auto;
+    margin-top: 20px;
 
 }
 
@@ -126,5 +128,27 @@ header ul li a:hover {
 .form button:hover {
     color: rgb(219, 221, 221);
     background-position: left bottom;
+}
+
+@media only screen and (max-width: 768px) {
+    .form {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+    .container .name h1 {
+        font-size: 30px;
+    }
+
+    .container .name h5 {
+        font-size: 15px;
+    }
+
+    #about p {
+        max-width: 80%; 
+        text-align: justify;
+    }
 }
 
