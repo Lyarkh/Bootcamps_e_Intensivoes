@@ -5,36 +5,36 @@ function validaCPF(cpf){
     if (cpf.length != 11){
         return false;
     } else {
+        
+        // Subdividindo a string 'cpf' para validar
+        var numerosParaValidacaoPrimeiroDigito = cpf.substring(0, 9);
+        var numerosParaValidacaoSegundoDigito = cpf.substring(0, 10);
 
-        var numeros = cpf.substring(0, 9);
+        // Os dígitos depois do '-' são usados para fazer a validação
         var digitos = cpf.substring(9);
 
-        var soma = 0;
+        var somaPrimeiroDigito = 0;
+        var somaSegundoDigito = 0;
+        
+        // Fazendo a soma para cada uma das substrings
         for (var i = 10; i > 1; i--){
-            soma += numeros.charAt(10 - i) * i;
+            somaPrimeiroDigito += numerosParaValidacaoPrimeiroDigito.charAt(10 - i) * i;
         }
-    
-        var resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
-
-        // Validação do primeiro dígito
-        if (resultado != digitos.charAt(0)){
-            return false;
-        }
-
-        soma = 0;
-        numeros = cpf.substring(0, 10);
 
         for (var k = 11; k > 1; k--){
-            soma += numeros.charAt(11 - k) * k;
+            somaSegundoDigito += numerosParaValidacaoSegundoDigito.charAt(11 - k) * k;
         }
 
-        resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+        // Resultado para cada um dos dígitos
+        var resultadoPrimeiroDigito = somaPrimeiroDigito % 11 < 2 ? 0 : 11 - (somaPrimeiroDigito % 11);
+        var resultadoSegundoDigito = somaSegundoDigito % 11 < 2 ? 0 : 11 - (somaSegundoDigito % 11);
 
-        // Validação do segundo dígito
-        if (resultado != digitos.charAt(1)) {
+        // Validando os dígitos
+
+        if (resultadoPrimeiroDigito != digitos.charAt(0) ||
+        resultadoSegundoDigito != digitos.charAt(1)){
             return false;
         }
-
         return true;
     }
 }
