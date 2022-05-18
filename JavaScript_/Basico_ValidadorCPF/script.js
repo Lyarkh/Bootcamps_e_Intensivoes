@@ -1,11 +1,14 @@
-
+// Verificando se foi carregado corretamento do HTML
 console.log('Javascript carregado!');
 
+// Função onde será feita a validação do cpf
 function validaCPF(cpf){
+
+    // Verificando a quantidade de numeros do cpf
     if (cpf.length != 11){
         return false;
     } else {
-        
+
         // Subdividindo a string 'cpf' para validar
         var numerosParaValidacaoPrimeiroDigito = cpf.substring(0, 9);
         var numerosParaValidacaoSegundoDigito = cpf.substring(0, 10);
@@ -30,7 +33,6 @@ function validaCPF(cpf){
         var resultadoSegundoDigito = somaSegundoDigito % 11 < 2 ? 0 : 11 - (somaSegundoDigito % 11);
 
         // Validando os dígitos
-
         if (resultadoPrimeiroDigito != digitos.charAt(0) ||
         resultadoSegundoDigito != digitos.charAt(1)){
             return false;
@@ -39,6 +41,7 @@ function validaCPF(cpf){
     }
 }
 
+// Função onde pega as informações para validação e envia a resposta para o HTML
 function validacao() {
     console.log('Iniciando validação do CPF');
 
