@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: rgb(34, 213, 219);
+    font-family: 'Anton', sans-serif;
+    
+}
+
+ul {
+    font-style: italic;
+    font-weight: 300;
+}
+
+body {
+    background: url('./images/background.jpg') no-repeat center center fixed ;
+    background-size: cover;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#logo {
+    width: 25%;
+    border-radius: 50%;
+    
+}
+
+header ul {
+    display: flex;
+    border-bottom: 1px solid #fff;
+    box-shadow: 2px 8px 10px -10px #fff;
+}
+
+header ul li {
+    padding: 5px;
+}
+
+header ul li a {
+    transition: 400ms;
+}
+
+header ul li a:hover {
+    color: rgb(238, 151, 255);
+}
+
+.container {
+    text-align: center;
+}
+
+.container .name h1 {
+    font-size: 70px;
+}
+
+.container .name h5 {
+    font-size: 35px;
+}
+
+.arrow {
+    font-size: 35px;
+    cursor: pointer;
+    animation: blink 1s steps(5, start) infinite;
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+#animation {
+    transition: 400ms;
+}
+
+.active {
+    display: block !important;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: 400ms;
+}
+
+#about p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 20px;
+
+}
+
+.form input {
+    width: 50%;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.form button {
+    width: 15%;
+    padding: 5px 10px;
+    font-weight: 800;
+    background: linear-gradient(to right,rgb(238, 151, 255)  50%, rgb(34, 213, 219) 50%);
+    color:rgb(219, 221, 221);
+    background-size: 200% 100% ;
+    background-position: right bottom;
+    border: none;
+    cursor: pointer;
+    transition: all 400ms ease-out;
+    border-radius: 0px 5px 5px 0;
+    margin-top: 20px;
+    margin-left: -5px;
+}
+
+.form button:hover {
+    color: rgb(219, 221, 221);
+    background-position: left bottom;
+}
+
+@media only screen and (max-width: 768px) {
+    .form {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+    .container .name h1 {
+        font-size: 30px;
+    }
+
+    .container .name h5 {
+        font-size: 15px;
+    }
+
+    #about p {
+        max-width: 80%; 
+        text-align: justify;
+    }
+}
+
