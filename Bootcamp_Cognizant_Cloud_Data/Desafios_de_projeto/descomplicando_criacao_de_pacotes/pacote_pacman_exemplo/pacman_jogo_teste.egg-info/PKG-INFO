@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pacman-jogo-teste
+Version: 0.0.1
+Summary: Recriando o jogo do pacman utilizando pygame
+Home-page: https://github.com/Lyarkh/Pacman
+Author: Lucas Emanuel
+Author-email: lcemanuel.emanuel@gmail.com
+License: UNKNOWN
+Description: # Pacman-teste
+        
+        Descricao. 
+        Esse pacote foi criado para:
+        	- Jogar uma replica do jogo pacman.
+        	- Testar e fazer o desafio de projeto do bootcamp.
+        
+        ## InstalaÃ§Ã£o
+        
+        Use o [pip](https://pip.pypa.io/en/stable/) para instalar o pacote.
+        
+        ```bash
+        pip install pacman-jogo-teste
+        ```
+        
+        ## Como usar
+        
+        Para rodar o pacote e jogar o jogo, faÃ§a a seguinte importacao.
+        
+        ```python
+        from pacman_teste.jogo import game
+        game.jogar()
+        ```
+        
+        ## Autor
+        Lucas Emanuel
+        
+Platform: UNKNOWN
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
