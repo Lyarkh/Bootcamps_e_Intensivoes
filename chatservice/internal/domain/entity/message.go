@@ -24,7 +24,7 @@ func NewMessage(role string, content string, model *Model) (*Message, error) {
 		Role:      role,
 		Content:   content,
 		Model:     model,
-		Tokens: totalTokens,
+		Tokens:    totalTokens,
 		CreatedAt: time.Now(),
 	}
 	if err := msg.Validate(); err != nil {
