@@ -8,6 +8,7 @@ import (
 	tiktoken_go "github.com/j178/tiktoken-go"
 )
 
+// Struct que representa A mensagem
 type Message struct {
 	ID        string
 	Role      string
@@ -17,26 +18,27 @@ type Message struct {
 	CreatedAt time.Time
 }
 
-func NewMessage(role string, content string, model *Model) (*Message, error) {
+// NewMessage cria uma instancia de Message
+func NewMessage(role, content string, model *Model) (*Message, error) {
 	totalTokens := tiktoken_go.CountTokens(model.GetModelName(), content)
 	msg := &Message{
 		ID:        uuid.New().String(),
 		Role:      role,
 		Content:   content,
-		Model:     model,
 		Tokens:    totalTokens,
+		Model:     model,
 		CreatedAt: time.Now(),
 	}
 	if err := msg.Validate(); err != nil {
 		return nil, err
 	}
-
 	return msg, nil
 }
 
+// Validate faz a validação dos campos na criação de uma instância
 func (m *Message) Validate() error {
 	if m.Role != "user" && m.Role != "system" && m.Role != "assistant" {
-		return errors.New("Invalid role")
+		return errors.New("invalid role")
 	}
 	if m.Content == "" {
 		return errors.New("content is empty")
@@ -44,10 +46,10 @@ func (m *Message) Validate() error {
 	if m.CreatedAt.IsZero() {
 		return errors.New("invalid created at")
 	}
-
 	return nil
 }
 
+// GetQtdTokens retorna a quantidade de to
 func (m *Message) GetQtdTokens() int {
 	return m.Tokens
 }
