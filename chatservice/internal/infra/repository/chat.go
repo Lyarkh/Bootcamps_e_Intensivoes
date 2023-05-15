@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/devfullcycle/fclx/chatservice/internal/infra/grpc/pb"
-	"github.com/devfullcycle/fclx/chatservice/internal/usecase/chatcompletionstream"
+	"github.com/Lyarkh/Full_Cycle_Learning_Experience/chatservice/internal/infra/grpc/pb"
+	"github.com/Lyarkh/Full_Cycle_Learning_Experience/chatservice/internal/usecase/chatcompletionstream"
 )
 
 type ChatService struct {
