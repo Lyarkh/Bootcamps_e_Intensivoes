@@ -6,7 +6,7 @@ import (
 
 	"github.com/Lyarkh/Full_Cycle_Learning_Experience/chatservice/configs"
 	"github.com/Lyarkh/Full_Cycle_Learning_Experience/chatservice/internal/infra/grpc/server"
-	"github.com/Lyarkh/Full_Cycle_Learning_Experience/chatservice/internal/infra/repository"
+	_ "github.com/Lyarkh/Full_Cycle_Learning_Experience/chatservice/internal/infra/repository"
 	"github.com/Lyarkh/Full_Cycle_Learning_Experience/chatservice/internal/infra/web"
 	"github.com/Lyarkh/Full_Cycle_Learning_Experience/chatservice/internal/infra/web/webserver"
 	"github.com/Lyarkh/Full_Cycle_Learning_Experience/chatservice/internal/usecase/chatcompletion"
