@@ -1,0 +1,44 @@
+{
+    "questoes": [
+        {
+            "numero": 1,
+            "enunciado": "Escreva um programa que solicite ao usuário uma palavra e verifique se ela é um palíndromo (igual ao ler de trás para frente)."
+        },
+        {
+            "numero": 2,
+            "enunciado": "Escreva um programa que leia números digitados pelo usuário e pare quando o número 0 for digitado. No final, imprima a média dos números digitados."
+        },
+        {
+            "numero": 3,
+            "enunciado": "Dado uma string 'python é uma linguagem poderosa', crie uma lista com as palavras separadas."
+        },
+        {
+            "numero": 4,
+            "enunciado": "Dado uma lista de strings ['banana', 'maçã', 'laranja', 'abacaxi'], crie uma nova listas com as palavras que têm mais de 5 letras e outra lista com as palavras ue terminam com a letra a."
+        },
+        {
+            "numero": 5,
+            "enunciado": "Escreva uma função que receba uma lista de números e retorne outra lista com os números ímpares."
+        },
+        {
+            "numero": 6,
+            "enunciado": "Escreva uma função que receba uma lista de números e retorne outra lista com os números primos presentes."
+        },
+        {
+            "numero": 7,
+            "enunciado": "Escreva uma função que receba duas listas e retorne outra lista com os elementos que estão presentes em apenas uma das listas."
+        },
+        {
+            "numero": 8,
+            "enunciado": "Dada uma lista de números inteiros, escreva uma função para encontrar o segundo maior valor na lista."
+        },
+        {
+            "numero": 9,
+            "enunciado": "Crie uma função que receba uma lista de tuplas, cada uma contendo o nome e a idade de uma pessoa, e retorne a lista ordenada pelo nome das pessoas em ordem alfabética."
+        },
+        {
+            "numero": 10,
+            "enunciado": "Dada uma lista contendo números inteiros, como você encontraria o maior número e o menor número dessa lista em uma única passagem."
+        }
+    ]
+}
