@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "bootcamp-atlantico-machine-learning"
+version = "0.1.0"
+description = ""
+authors = ["Lyarkh <lcemanuel.emanuel@gmail.com>"]
+readme = "README.md"
+packages = [{include = "bootcamp_atlantico_machine_learning"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+typer = "^0.9.0"
+rich = "^13.5.2"
+pyyaml = "^6.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
