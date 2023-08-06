@@ -1,6 +1,8 @@
+from abc import ABC, abstractmethod
 from pydantic import BaseModel
 
+class Resolucao(ABC):
 
-class Resolucao(BaseModel):
-    ...
-    
+    @abstractmethod
+    def main(self):
+        ...
