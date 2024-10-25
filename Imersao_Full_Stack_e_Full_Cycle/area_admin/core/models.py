@@ -11,6 +11,12 @@ class Video(models.Model):
     num_likes = models.IntegerField(default=0, verbose_name='Likes', editable=False)
     num_views = models.IntegerField(default=0, verbose_name='Visualizações', editable=False)
     tags = models.ManyToManyField('Tag', verbose_name='Tags', related_name='videos')
+    author = models.ForeignKey('auth.User', on_delete=models.PROTECT, verbose_name='Autor', related_name='videos', editable=False)
+
+    def get_video_status_display(self):
+        if not hasattr(self, 'video_media'):
+            return 'Pendente'
+        return self.video_media.get_status_display()
 
     class Meta:
         verbose_name = 'Vídeo'
@@ -31,6 +37,9 @@ class VideoMedia(models.Model):
     video_path = models.CharField(max_length=255, verbose_name='Vídeo')
     status = models.CharField(max_length=20, choices=Status.choices, default=Status.UPLOADED_STARTED, verbose_name='Status')
     video = models.OneToOneField('Video', on_delete=models.PROTECT, verbose_name='Vídeo', related_name='video_media')
+
+    def get_status_display(self):
+        return VideoMedia.Status(self.status).label
 
     class Media:
         verbose_name = 'Mídia'

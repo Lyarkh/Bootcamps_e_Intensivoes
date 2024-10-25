@@ -1,6 +1,19 @@
 {% extends "admin/base_site.html" %}
 
-{% block content  %}
+{% load i18n admin_urls static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" href="{% static "admin/css/forms.css" %}">{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+&rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+&rsaquo; {% if has_view_permission %}<a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %}
+&rsaquo; {% blocktranslate with name=opts.verbose_name %}Upload vídeo{% endblocktranslate %}{{ original|truncatewords:"18" }}
+</div>
+{% endblock %}
+
+{% block content %}
 <form id="upload-form" method="post" enctype="multipart/form-data">
     <p id="errornote" class="errornote hidden"></p>
     {% csrf_token %}
@@ -21,6 +34,7 @@
 <div id="progress-bar" style="width: 100%; background: #f3f3f3;">
     <div id="progress" style="width: 0%; height: 20px; background: #4caf50; text-align: center;">0%</div>
 </div>
+
 <script type="text/javascript">
     const CHUNK_SIZE = 1 * 1024 * 1024; // 1 MB per chunk
     const MAX_SIMULTANEOUS_UPLOADS = 2; // Number of simultaneous uploads
