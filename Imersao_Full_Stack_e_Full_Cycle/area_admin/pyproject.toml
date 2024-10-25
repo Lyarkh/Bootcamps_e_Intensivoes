@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "imersao-full-stack-e-full-cycle"
+name = "area-admin"
 version = "0.1.0"
 description = ""
 authors = ["Lyarkh <lcemanuel.emanuel@gmail.com>"]
 license = "MIT"
-readme = "README.md"
+readme = "../README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
-django = "^5.1.2"
+python = "3.12.*"
+django = "5.1.2"
 
 
 [build-system]
