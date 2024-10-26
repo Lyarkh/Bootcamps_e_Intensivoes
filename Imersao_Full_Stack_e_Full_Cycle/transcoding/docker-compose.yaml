@@ -6,6 +6,8 @@ services:
     volumes:
       - .:/app
       - external-storage:/media/uploads
+      # - ./mediatest/media/uploads:/media/uploads
+
     tty: true
     stdin_open: true
 
