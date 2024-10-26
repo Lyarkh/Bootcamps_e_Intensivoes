@@ -1,0 +1,15 @@
+services:
+  go_app_dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - external-storage:/media/uploads
+    tty: true
+    stdin_open: true
+
+
+volumes:
+  external-storage:
+    external: true
