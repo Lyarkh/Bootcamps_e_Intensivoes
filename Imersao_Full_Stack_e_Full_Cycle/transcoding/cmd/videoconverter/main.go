@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	println("Hello World!")
+	mergeChunks("mediatest/media/uploads/1", "merged.mp4")
 }
 
 func extractNumber(fileName string) int {
