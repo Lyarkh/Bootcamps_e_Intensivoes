@@ -15,6 +15,10 @@ import (
 
 type VideoConverter struct{}
 
+func NewVideoConverter() *VideoConverter {
+	return &VideoConverter{}
+}
+
 // {"video_id": "1", "path": "media/uploads/1"}
 type VideoTask struct {
 	VideoID int    `json:"video_id"`
@@ -26,6 +30,13 @@ func (vc *VideoConverter) Handle(msg []byte) {
 	err := json.Unmarshal(msg, &task)
 	if err != nil {
 		vc.logErrror(task, "failed to unmarshal task", err)
+		return
+	}
+
+	err = vc.processVideo(&task)
+	if err != nil {
+		vc.logErrror(task, "failed to process video", err)
+		return
 	}
 }
 
