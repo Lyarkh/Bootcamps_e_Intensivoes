@@ -60,6 +60,15 @@ func (vc *VideoConverter) processVideo(task *VideoTask) error {
 		vc.logErrror(*task, "failed to convert video to mpeg-dash, output:" + string(output), err)
 		return err
 	}
+
+	slog.Info("Video converted to mpeg-dash", slog.String("path", mpegDashPath))
+
+	err =  os.Remove(mergedFile)
+	if err != nil {
+		vc.logErrror(*task, "failed to remove merged file", err)
+		return err
+	}
+
 	return nil
 }
 
