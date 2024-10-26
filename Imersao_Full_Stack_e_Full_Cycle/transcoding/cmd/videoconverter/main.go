@@ -44,5 +44,13 @@ func mergeChunks(inputDir, outputFile string) error {
 		if err != nil {
 			return fmt.Errorf("failed to open chunk: %v", err)
 		}
+
+		_, err = output.ReadFrom(input)
+		if err != nil {
+			return fmt.Errorf("failed to write chunk %s to merge file: %v", chunk, err)
+		}
+		input.Close()
 	}
+
+	return nil
 }
