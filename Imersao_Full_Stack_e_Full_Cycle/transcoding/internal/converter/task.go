@@ -20,7 +20,7 @@ type VideoConverter struct {
 
 func NewVideoConverter(db *sql.DB) *VideoConverter {
 	return &VideoConverter{
-		db: db
+		db: db,
 	}
 }
 
@@ -56,7 +56,7 @@ func (vc *VideoConverter) Handle(msg []byte) {
 	}
 
 	slog.Info("Video marked as processd", slog.Int("video_id", task.VideoID))
-	
+
 }
 
 func (vc *VideoConverter) processVideo(task *VideoTask) error {
