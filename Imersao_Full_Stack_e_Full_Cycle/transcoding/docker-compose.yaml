@@ -10,6 +10,17 @@ services:
 
     tty: true
     stdin_open: true
+    ports:
+      - "8080:8080"
+    environment:
+      DEBUG: "true"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "converter"
+      POSTGRES_HOST: "postgres"
+      POSTGRES_SSL_MODE: "disable"
+    depends_on:
+      - postgres
 
   postgres:
       image: postgres:13
@@ -31,7 +42,7 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: teste@teste.com
       PGADMIN_DEFAULT_PASSWORD: teste
-      
+
 volumes:
   external-storage:
     external: true
