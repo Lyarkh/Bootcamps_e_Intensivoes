@@ -6,6 +6,8 @@ import (
 	"imersaofc/transcoding/internal/converter"
 	"log/slog"
 	"os"
+
+	_ "github.com/lib/pq"
 )
 
 func connectPostgress() (*sql.DB, error) {
