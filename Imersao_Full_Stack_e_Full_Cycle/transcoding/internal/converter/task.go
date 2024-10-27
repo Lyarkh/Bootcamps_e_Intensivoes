@@ -1,6 +1,7 @@
 package converter
 
 import (
+	"database/sql"
 	"encoding/json"
 	"fmt"
 	"log/slog"
@@ -13,10 +14,14 @@ import (
 	"time"
 )
 
-type VideoConverter struct{}
+type VideoConverter struct {
+	db *sql.DB
+}
 
-func NewVideoConverter() *VideoConverter {
-	return &VideoConverter{}
+func NewVideoConverter(db *sql.DB) *VideoConverter {
+	return &VideoConverter{
+		db: db
+	}
 }
 
 // {"video_id": "1", "path": "media/uploads/1"}
@@ -33,11 +38,25 @@ func (vc *VideoConverter) Handle(msg []byte) {
 		return
 	}
 
+	if IsProcessed(vc.db, task.VideoID) {
+		slog.Warn("Video already processed", slog.Int("video_id", task.VideoID))
+		return
+	}
+
 	err = vc.processVideo(&task)
 	if err != nil {
 		vc.logErrror(task, "failed to process video", err)
 		return
 	}
+
+	err = MarkProcessed(vc.db, task.VideoID)
+	if err != nil {
+		vc.logErrror(task, "failed to mark video as processed", err)
+		return
+	}
+
+	slog.Info("Video marked as processd", slog.Int("video_id", task.VideoID))
+	
 }
 
 func (vc *VideoConverter) processVideo(task *VideoTask) error {
@@ -63,19 +82,18 @@ func (vc *VideoConverter) processVideo(task *VideoTask) error {
 		"ffmpeg", "-i", mergedFile,
 		"-f", "dash",
 		filepath.Join(mpegDashPath, "output.mpd"),
-
 	)
 
 	output, err := ffmpegCmd.CombinedOutput()
 	if err != nil {
-		vc.logErrror(*task, "failed to convert video to mpeg-dash, output:" + string(output), err)
+		vc.logErrror(*task, "failed to convert video to mpeg-dash, output:"+string(output), err)
 		return err
 	}
 
 	slog.Info("Video converted to mpeg-dash", slog.String("path", mpegDashPath))
 
 	slog.Info("Removing merged file", slog.String("path", mergedFile))
-	err =  os.Remove(mergedFile)
+	err = os.Remove(mergedFile)
 	if err != nil {
 		vc.logErrror(*task, "failed to remove merged file", err)
 		return err
@@ -94,7 +112,8 @@ func (vc *VideoConverter) logErrror(task VideoTask, message string, err error) {
 
 	serializedError, _ := json.Marshal(errorData)
 	slog.Error("Processing error", slog.String("error_details", string(serializedError)))
-	// todo: register error on database
+
+	RegisterError(vc.db, errorData, err)
 }
 
 func (vc *VideoConverter) extractNumber(fileName string) int {
